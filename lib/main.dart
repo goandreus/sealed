@@ -50,7 +50,11 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              user.when(
+                admin: (String name) => 'Hello Sir $name',
+                developer: (String name) => 'Hello, this works $name',
+                normal: (String name) => 'Hello $name',
+              ),
             ),
             Text(
               '$_counter',
